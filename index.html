@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name — Artwork</title>
+  <meta name="description" content="Portfolio of original artwork by Your Name.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top">Your Name</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <h1>Paintings, drawings &amp; prints</h1>
+      <p>A selection of recent work exploring colour, shape and everyday light.</p>
+    </section>
+
+    <section id="work" aria-label="Artwork">
+      <div class="filters" role="toolbar" aria-label="Filter by category"></div>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>
+        Write a short introduction here: who you are, what you make, and what
+        draws you to it. Two or three sentences is plenty.
+      </p>
+      <p>
+        You can mention your training, exhibitions, or where you are based.
+      </p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>For commissions, prints or questions, get in touch.</p>
+      <p class="links">
+        <a href="mailto:you@example.com">you@example.com</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Name. All artwork is the property of the artist.</p>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Artwork viewer">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous artwork">&#8249;</button>
+    <figure>
+      <img alt="">
+      <figcaption>
+        <h3 class="lb-title"></h3>
+        <p class="lb-meta"></p>
+        <p class="lb-desc"></p>
+      </figcaption>
+    </figure>
+    <button class="lb-next" aria-label="Next artwork">&#8250;</button>
+  </dialog>
+
+  <script src="js/artworks.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
