@@ -1,54 +1,52 @@
 # gallery-with-claude
 
-A simple, fast portfolio site for showcasing artwork. Plain HTML, CSS and
-JavaScript — no build step, nothing to install.
+A one-page portfolio site built with React and Vite from the Figma design
+"Mehndi Artist Portfolio Design" (by Jaysiddh Vaghela, Figma Community).
 
-## Features
+Sections: header and hero, gallery with category filters, services carousel,
+about, reviews carousel, FAQ accordion, contact and footer. It works on
+desktop, tablet and phone.
 
-- Masonry-style grid that keeps each artwork's original shape
-- Filter buttons by category (Painting, Drawing, Print, …)
-- Full-screen viewer with title, medium, size and description; arrow keys and swipe to browse
-- About and Contact sections
-- Works on phones, tablets and desktops; follows the visitor's light/dark setting
+## Running it locally
 
-## Viewing it locally
-
-Open `index.html` in a browser, or run a small server from this folder:
+You need [Node.js](https://nodejs.org) 18 or newer.
 
 ```sh
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-then visit http://localhost:8000.
+then open the address it prints (usually http://localhost:5173).
 
-## Adding your artwork
+`npm run build` creates the finished site in `dist/`; `npm run preview` serves that build.
 
-1. Put your image in the `images/` folder (JPG or WebP around 2000px on the long side works well).
-2. Open `js/artworks.js` and add an entry:
+## Changing the content
 
-   ```js
-   {
-     title: "My New Piece",
-     year: 2026,
-     medium: "Oil on canvas",
-     size: "50 × 70 cm",
-     category: "Painting",
-     image: "images/my-new-piece.jpg",
-     description: "Optional short note about the piece.",
-   },
-   ```
+All text and images are in one file: **`src/data/content.js`**.
 
-3. Delete the placeholder `artwork-XX.svg` files and their entries when you no longer need them.
+- **Images:** put your files in `public/images/` and refer to them as
+  `"images/your-file.jpg"`. JPG or WebP around 1600px wide works well.
+- **Gallery:** add or remove entries in `gallery.items`. Each one needs an
+  `image`, a short `alt` description and a `category`. The filter buttons come
+  from `gallery.categories`; an artwork shows up under the filter whose name
+  matches its `category`.
+- **Services, reviews, FAQ, contact, footer:** edit the matching section of the
+  same file. Cards are added or removed by adding or removing entries.
+- **Logo:** replace `public/images/logo.png` (white lettering on a transparent
+  background).
 
-Filter buttons are created automatically from the categories you use.
+## Colours and fonts
 
-## Personalising
+The colours and spacing are variables at the top of `src/styles.css`
+(`--green` is the main colour). Text uses the Poppins font, bundled with the site.
 
-- **Your name, intro, about and contact text:** edit `index.html` (search for "Your Name").
-- **Colours and fonts:** edit the variables at the top of `css/style.css`.
+## Publishing on GitHub Pages
 
-## Publishing for free with GitHub Pages
+The workflow in `.github/workflows/deploy.yml` builds and publishes the site
+every time `main` changes.
 
-In the repository on GitHub, go to **Settings → Pages**, choose
-**Deploy from a branch**, select your main branch and the `/ (root)` folder,
-and save. The site will be live at `https://<username>.github.io/gallery-with-claude/`.
+1. In the repository on GitHub, go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Push to `main` (or run the workflow from the **Actions** tab).
+
+The site will be live at `https://<username>.github.io/gallery-with-claude/`.
